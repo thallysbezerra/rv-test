@@ -1,0 +1,76 @@
+@import '../../css/theme.scss';
+
+.footer {
+	bottom: 0;
+	box-shadow: 8px 0px 47px rgba(0, 0, 0, 0.076002);
+	box-sizing: border-box;
+	padding: 0 15px;
+	position: fixed;
+	width: 100%;
+
+	&__grid-container {
+		align-items: center;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: 100px 1fr 100px;
+		height: 75px;
+	}
+
+	&__grid-item {
+		text-align: center;
+	}
+
+	&__amount {
+		&__label {
+			color: $grey-dark;
+			display: block;
+			font-size: 14px;
+			font-weight: $bold;
+			text-align: left;
+		}
+
+		&__value {
+			color: $red;
+			display: block;
+			font-size: 28px;
+			font-weight: $light;
+			text-align: left;
+			white-space: nowrap;
+		}
+	}
+
+	&__car-items {
+		align-items: center;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		height: 40px;
+
+		@include breakpoint(mobile) {
+			display: none;
+		}
+
+		&__engine {
+			font-size: 18px;
+			font-weight: $medium;
+
+			&--type {
+				color: $red;
+			}
+		}
+
+		&__color {
+			&__img {
+				border-radius: 50%;
+				box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+				height: 25px;
+				width: 25px;
+			}
+		}
+
+		&__wheel {
+			&__img {
+				width: 40px;
+			}
+		}
+	}
+}

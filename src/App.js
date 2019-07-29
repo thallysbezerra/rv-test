@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './css/theme.scss';
 
 import ColorSelection from './components/ColorSelection/ColorSelection';
@@ -19,7 +20,7 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			amount: 0,
+			amount: 63000,
 			apiStatus: null,
 			color: null,
 			engine: null,
@@ -48,7 +49,7 @@ export default class App extends Component {
 
 	handleRebuild = () => {
 		this.setState({
-			amount: 0,
+			amount: 63000,
 			labelsOnFooter: []
 		});
 	};
@@ -72,20 +73,17 @@ export default class App extends Component {
 			wheels
 		} = this.state;
 
-		console.log(apiStatus);
-
 		return apiStatus === 'success' ? (
 			<>
 				<Header />
+
 				<Begin onClick={() => {}} />
+
 				<Engine>
 					{engine.map(item => (
 						<EngineSelection
 							onClick={() => {
-								this.handleSelectItem(
-									item.price,
-									item.kwh + ' ' + item.type
-								);
+								this.handleSelectItem(item.price, item.id);
 							}}
 							key={item.id}
 							kwh={item.kwh}
@@ -94,29 +92,33 @@ export default class App extends Component {
 						/>
 					))}
 				</Engine>
+
 				<Color>
 					{color.map(item => (
 						<ColorSelection
 							onClick={() => {
-								this.handleSelectItem(item.price, item.label);
+								this.handleSelectItem(item.price, item.id);
 							}}
 							key={item.id}
 							label={item.label}
 						/>
 					))}
 				</Color>
+
 				<Wheels>
 					{wheels.map(item => (
 						<WheelsSelection
 							onClick={() => {
-								this.handleSelectItem(item.price, item.label);
+								this.handleSelectItem(item.price, item.id);
 							}}
 							key={item.id}
 							label={item.label}
 						/>
 					))}
 				</Wheels>
+
 				<Final onClick={() => this.handleRebuild()} />
+
 				<Footer amount={amount} label={labelsOnFooter} />
 			</>
 		) : apiStatus === 'error' ? (
