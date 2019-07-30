@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error UI <Error /> must have the snapshot version. 1`] = `
+<div
+  className="error"
+>
+  Sorry! 
+  <br />
+  Something went wrong. 
+  <br />
+  Try again later.
+</div>
+`;

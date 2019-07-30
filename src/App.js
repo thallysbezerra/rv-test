@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { isNil } from 'ramda';
+
 import './css/theme.scss';
 
 import ColorSelection from './components/ColorSelection/ColorSelection';
@@ -20,16 +22,25 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			amount: 63000,
+			amount: 0,
+			carName: 'Model R',
+			carPrice: 63000,
 			apiStatus: null,
 			color: null,
+			colorPrice: 0,
 			engine: null,
-			labelsOnFooter: [],
-			wheels: null
+			enginePrice: 0,
+			labelsOnFooter: ['Model R'],
+			wheels: null,
+			wheelsPrice: 0
 		};
 	}
 
 	componentDidMount() {
+		const { carPrice } = this.state;
+
+		this.setState({ amount: carPrice });
+
 		fetch('https://next.json-generator.com/api/json/get/41ORKNZDU')
 			.then(response => response.json())
 			.then(api => {
@@ -48,18 +59,53 @@ export default class App extends Component {
 	}
 
 	handleRebuild = () => {
+		const { carName, carPrice } = this.state;
+
 		this.setState({
-			amount: 63000,
-			labelsOnFooter: []
+			amount: carPrice,
+			labelsOnFooter: [carName]
 		});
 	};
 
-	handleSelectItem = (price, labelOnFooter) => {
-		const { amount, labelsOnFooter } = this.state;
+	handleSelectEngine = (enginePrice, engineId) => {
+		const { carName, carPrice } = this.state;
 
 		this.setState({
-			amount: price + amount,
-			labelsOnFooter: [...labelsOnFooter, labelOnFooter]
+			amount: carPrice + enginePrice,
+			enginePrice,
+			labelsOnFooter: [carName, engineId]
+		});
+	};
+
+	handleSelectColor = (colorPrice, colorId) => {
+		const { carPrice, enginePrice, labelsOnFooter } = this.state;
+		const previousLabelsOnFooter = [labelsOnFooter[0], labelsOnFooter[1]];
+
+		this.setState({
+			amount: carPrice + enginePrice + colorPrice,
+			colorPrice,
+			labelsOnFooter: [
+				...(isNil(colorId) ? labelsOnFooter : previousLabelsOnFooter),
+				colorId
+			]
+		});
+	};
+
+	handleSelectWheels = (wheelsPrice, wheelsId) => {
+		const { carPrice, colorPrice, enginePrice, labelsOnFooter } = this.state;
+		const previousLabelsOnFooter = [
+			labelsOnFooter[0],
+			labelsOnFooter[1],
+			labelsOnFooter[2]
+		];
+
+		this.setState({
+			amount: carPrice + enginePrice + colorPrice + wheelsPrice,
+			wheelsPrice,
+			labelsOnFooter: [
+				...(isNil(wheelsId) ? labelsOnFooter : previousLabelsOnFooter),
+				wheelsId
+			]
 		});
 	};
 
@@ -83,7 +129,7 @@ export default class App extends Component {
 					{engine.map(item => (
 						<EngineSelection
 							onClick={() => {
-								this.handleSelectItem(item.price, item.id);
+								this.handleSelectEngine(item.price, item.id);
 							}}
 							key={item.id}
 							kwh={item.kwh}
@@ -97,7 +143,7 @@ export default class App extends Component {
 					{color.map(item => (
 						<ColorSelection
 							onClick={() => {
-								this.handleSelectItem(item.price, item.id);
+								this.handleSelectColor(item.price, item.id);
 							}}
 							key={item.id}
 							label={item.label}
@@ -109,7 +155,7 @@ export default class App extends Component {
 					{wheels.map(item => (
 						<WheelsSelection
 							onClick={() => {
-								this.handleSelectItem(item.price, item.id);
+								this.handleSelectWheels(item.price, item.id);
 							}}
 							key={item.id}
 							label={item.label}

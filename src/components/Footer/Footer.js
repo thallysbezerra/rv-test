@@ -22,59 +22,77 @@ const Footer = ({ amount, label }) => (
 				</span>
 			</div>
 			<div className="footer__grid-item footer__car-items">
-				<span className="footer__car-items__model">Model R</span>
+				<span className="footer__car-items__model">{label[0]}</span>
 
-				{label[0] === 1 && (
+				{label[1] === 1 && (
 					<div className="footer__car-items__engine">
 						75 <span className="footer__car-items__engine--type">P</span>
 					</div>
 				)}
-				{label[0] === 2 && (
+				{label[1] === 2 && (
 					<div className="footer__car-items__engine">
 						100 <span className="footer__car-items__engine--type">S</span>
 					</div>
 				)}
-				{label[0] === 3 && (
+				{label[1] === 3 && (
 					<div className="footer__car-items__engine">
 						125 <span className="footer__car-items__engine--type">B</span>
 					</div>
 				)}
 
-				{label[1] === 4 && (
+				{label[2] === 4 && (
 					<div className="footer__car-items__color">
-						<img src={dotRed} className="footer__car-items__color__img" />
+						<img
+							src={dotRed}
+							className="footer__car-items__color__img"
+							alt="Metalic Vermilion"
+						/>
 					</div>
 				)}
-				{label[1] === 5 && (
+				{label[2] === 5 && (
 					<div className="footer__car-items__color">
 						<img
 							src={dotBlue}
 							className="footer__car-items__color__img"
+							alt="Thunderbolt Blue"
 						/>
 					</div>
 				)}
-				{label[1] === 6 && (
+				{label[2] === 6 && (
 					<div className="footer__car-items__color">
 						<img
 							src={dotGrey}
 							className="footer__car-items__color__img"
+							alt="Space Grey"
 						/>
 					</div>
 				)}
 
-				{label[2] === 7 && (
+				{label[3] === 7 && (
 					<div className="footer__car-items__wheel">
-						<img src={wheelA} className="footer__car-items__wheel__img" />
+						<img
+							src={wheelA}
+							className="footer__car-items__wheel__img"
+							alt="20” Silver Metalic"
+						/>
 					</div>
 				)}
-				{label[2] === 8 && (
+				{label[3] === 8 && (
 					<div className="footer__car-items__wheel">
-						<img src={wheelB} className="footer__car-items__wheel__img" />
+						<img
+							src={wheelB}
+							className="footer__car-items__wheel__img"
+							alt="20” Grafitti"
+						/>
 					</div>
 				)}
-				{label[2] === 9 && (
+				{label[3] === 9 && (
 					<div className="footer__car-items__wheel">
-						<img src={wheelC} className="footer__car-items__wheel__img" />
+						<img
+							src={wheelC}
+							className="footer__car-items__wheel__img"
+							alt="22” Performance Carbon"
+						/>
 					</div>
 				)}
 			</div>

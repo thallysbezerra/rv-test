@@ -1,18 +1,40 @@
 # Development Stack
 
 -  **Assets extraction**: Figma
+
 -  **Code editor**: Visual Studio Code
    <details>
-   <summary>Important extensions</summary> - Auto Rename Tag - Auto-Open Markdown Preview - Brackt Pair Colorizer - VS Code ES7 React/Redux/React-Native/JS snippets - ESLint - GitLens - JavaScript (ES6) code snippets - Prettier - Code formatter - SCSS formatter
+   <summary>Important extensions</summary>
+   
+   - Auto Rename Tag
+   - Auto-Open Markdown Preview
+   - Brackt Pair Colorizer
+   - VS Code ES7 React/Redux/React-Native/JS snippets
+   - ESLint
+   - GitLens
+   - JavaScript (ES6) code snippets
+   - Prettier - Code formatter
+   - SCSS formatter
+
    </details>
 -  **CSS preprocessor**: SASS/SCSS
+
 -  **Hosting**: Firebase
+
 -  **Lib/Framework**: React.js using create-react-app
+
 -  **Package manager**: NPM/Yarn
    <details>
-   <summary>Dependencies</summary> - node-sass
+   <summary>Dependencies</summary>
 
-       	</details>
+   - chai
+   - enzyme
+   - enzyme-adapter-react-16
+   - node-sass
+   - ramda
+   - react-test-renderer
+
+   </details>
 
 -  **Server**: Node.js
 
@@ -42,12 +64,21 @@
 
 ## Javascript
 
+- Arrow functions instead of `bind.this`, simplifying code.
+- Combining `isNil` method from `ramda` with ternaries to verify arguments with/without changes.
 -  Destructuring of states and props to keep a clean code and declarative.
 -  `.map` to list items from API.
 -  `PropTypes` to better component maintenance and understanding.
+- Reusing car price and name as states, considering possible future changes.
 -  Some components are stateless, focused on performance.
 -  Spread operator to create an array with selected items on footer.
 -  Short circuit conditionals validating selected items on footer.
+
+## Tests
+- Jest as test runner inside create-react-app.
+- Simple tests to verify if application is rendering without crashing and initial states are initializing correctly.
+- Statics components with snapshots tests to avoid components changes.
+- Testing if data as number, is entering and returning correctly on `monetaryMask()` function.
 
 # Instructions to run locally
 
