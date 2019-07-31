@@ -1,0 +1,83 @@
+@import '../../css/theme.scss';
+
+.header {
+	&--grid-container {
+		align-items: center;
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: 179px 1fr;
+		height: 75px;
+	}
+
+	&__logo {
+		box-sizing: border-box;
+		width: 159px;
+
+		@include breakpoint(tabletL) {
+			width: 132px;
+		}
+	}
+
+	&__nav {
+		position: relative;
+
+		&:before,
+		&:after {
+			content: '';
+			height: 75px;
+			position: absolute;
+			top: 0;
+			width: 20px;
+		}
+
+		&:before {
+			background: linear-gradient(90deg, $white, transparent);
+			left: 0;
+		}
+
+		&:after {
+			background: linear-gradient(90deg, transparent, $white);
+			right: 0;
+		}
+
+		&__ul {
+			align-items: center;
+			display: flex;
+			height: 75px;
+			list-style: none;
+			margin: 0;
+			max-width: calc(100vw - 219px);
+			overflow-x: scroll;
+			padding-left: 0;
+			white-space: nowrap;
+
+			@include breakpoint(tabletL) {
+				justify-content: flex-end;
+				overflow-x: hidden;
+			}
+
+			&__li {
+				display: inline-block;
+				margin: 0 20px;
+
+				&__a {
+					color: $greyish-blue;
+					display: inline-block;
+					font-weight: $regular;
+					padding: 4px 0 2px;
+					text-decoration: none;
+
+					&.active {
+						border-bottom: 2px solid $red;
+						pointer-events: none;
+					}
+
+					&.disabled {
+						opacity: 0.57;
+						pointer-events: none;
+					}
+				}
+			}
+		}
+	}
+}

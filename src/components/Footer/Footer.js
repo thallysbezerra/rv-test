@@ -14,14 +14,14 @@ import wheelC from '../../img/wheel-c.png';
 
 const Footer = ({ amount, label }) => (
 	<footer className="footer">
-		<div className="footer__grid-container container">
-			<div className="footer__grid-item footer__amount">
+		<div className="footer--grid-container container">
+			<div className="footer--grid-item footer__amount">
 				<span className="footer__amount__label">Total</span>
 				<span className="footer__amount__value">
 					{monetaryMask(amount)}
 				</span>
 			</div>
-			<div className="footer__grid-item footer__car-items">
+			<div className="footer--grid-item footer__car-items">
 				<span className="footer__car-items__model">{label[0]}</span>
 
 				{label[1] === 1 && (
@@ -96,7 +96,7 @@ const Footer = ({ amount, label }) => (
 					</div>
 				)}
 			</div>
-			<div className="footer__grid-item">Next button</div>
+			<div className="footer--grid-item">Next button</div>
 		</div>
 	</footer>
 );

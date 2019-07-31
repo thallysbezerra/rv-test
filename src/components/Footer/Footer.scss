@@ -8,7 +8,7 @@
 	position: fixed;
 	width: 100%;
 
-	&__grid-container {
+	&--grid-container {
 		align-items: center;
 		display: grid;
 		grid-gap: 20px;
@@ -16,7 +16,7 @@
 		height: 75px;
 	}
 
-	&__grid-item {
+	&--grid-item {
 		text-align: center;
 	}
 
@@ -46,7 +46,7 @@
 		height: 40px;
 
 		@include breakpoint(mobile) {
-			display: none;
+			visibility: hidden;
 		}
 
 		&__engine {

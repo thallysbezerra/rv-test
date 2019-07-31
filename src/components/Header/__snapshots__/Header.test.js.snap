@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header UI <Header /> must have the snapshot version. 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header--grid-container container"
+  >
+    <img
+      alt="Red Ventures - Logo"
+      className="header__logo"
+      src="RV-logo.svg"
+    />
+    <nav
+      className="header__nav"
+    >
+      <ul
+        className="header__nav__ul"
+      >
+        <li
+          className="header__nav__ul__li"
+        >
+          <a
+            className="header__nav__ul__li__a active"
+            href="/"
+          >
+            Model R
+          </a>
+        </li>
+        <li
+          className="header__nav__ul__li"
+        >
+          <a
+            className="header__nav__ul__li__a disabled"
+            href="/"
+          >
+            Model IQ
+          </a>
+        </li>
+        <li
+          className="header__nav__ul__li"
+        >
+          <a
+            className="header__nav__ul__li__a disabled"
+            href="/"
+          >
+            Model Mobi
+          </a>
+        </li>
+        <li
+          className="header__nav__ul__li"
+        >
+          <a
+            className="header__nav__ul__li__a disabled"
+            href="/"
+          >
+            Model Charlie
+          </a>
+        </li>
+        <li
+          className="header__nav__ul__li"
+        >
+          <a
+            className="header__nav__ul__li__a disabled"
+            href="/"
+          >
+            Model Italy
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+`;

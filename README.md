@@ -45,22 +45,24 @@
 
 ## CSS
 
--  All CSS/SCSS theme files are imported on `theme.scss`.
--  B.E.M. (Block Element Modifier) class naming methodology.
--  Mobile first with four breakpoints using:
-   - Mobile: Til 767px
-   - Tablet portrait mode: Beetween 768px and 1023px.
-   - Tablet landscape mode: Beetween 1024px and 1279px
-   - Desktop: Bigger than 1280px.
--  Each component have your own SCSS file.
--  Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
--  Keyframes animations are imported on `animations.scss`.
--  Using SASS/SCSS.
+- All CSS/SCSS theme files are imported on `theme.scss`.
+- B.E.M. (Block Element Modifier) class naming methodology.
+- Even with disabled links, navbar on mobile can be simulate scrolling right/left.
+- Mobile first with four breakpoints using:
+   - Only on mobile: Screen resolution <= 767px.
+   - Tablet portrait mode: Screen resolution >= 768px.
+   - Tablet landscape mode: Screen resolution >= 1024px.
+   - Desktop: Screen resolution >= 1280px.
+- Each component have your own SCSS file.
+- Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
+- Keyframes animations are imported on `animations.scss`.
+- Using SASS/SCSS.
 
 ## HTML
 
--  HTML5 following W3C Standards recommendations.
+- HTML5 following W3C Standards recommendations.
 - All images are on the same directory (`src/img`) for performance reasons downloading each images only once when page is loaded.
+- Car models are disabled, without navigation, except Model R.
 
 ## Javascript
 
