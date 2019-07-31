@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Begin = ({ onClick }) => (
-	<section className="begin">
-		<button onClick={onClick}>Begin</button>
+	<section className="begin screen--full">
+		<div className="container">
+			<button onClick={onClick}>Begin</button>
+		</div>
 	</section>
 );
 

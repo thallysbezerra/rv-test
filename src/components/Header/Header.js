@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
-import rvLogo from '../../img/RV-logo.svg';
+import rvLogo from '../../img/rv-logo.svg';
 
 const Header = props => {
 	return (

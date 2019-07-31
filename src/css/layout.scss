@@ -7,3 +7,25 @@
 		padding: 0;
 	}
 }
+
+.screen--full,
+.screen--showing-footer {
+	background-color: $white;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 75px;
+	z-index: 1;
+}
+
+.screen--full {
+	bottom: 0;
+}
+
+.screen--showing-footer {
+	bottom: 75px;
+
+	& ~ .footer {
+		z-index: 2;
+	}
+}
