@@ -8,6 +8,16 @@
 	}
 }
 
+.screen--inactive {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.screen--active,
+.screen--inactive {
+	transition: opacity 0.5s ease-in-out;
+}
+
 .screen--full,
 .screen--showing-footer {
 	background-color: $white;
@@ -18,8 +28,19 @@
 	z-index: 1;
 }
 
-.screen--full {
+.screen--full.screen--active {
 	bottom: 0;
+	z-index: 3;
+
+	& ~ .footer {
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+		visibility: hidden;
+	}
+}
+
+.screen--full.footer {
+	transition: opacity 0.5s ease-in-out;
 }
 
 .screen--showing-footer {

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Color = ({ children }) => (
-	<section className="color screen--showing-footer">
+import screenStatus from '../../services/screenStatus';
+
+const Color = ({ children, screenIsActive }) => (
+	<section className={`color screen--showing-footer ${screenStatus(screenIsActive)}`}>
 		<div className="container">{children}</div>
 	</section>
 );

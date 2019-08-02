@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Wheels = ({ children }) => (
-	<section className="wheels screen--showing-footer">
+import screenStatus from '../../services/screenStatus';
+
+const Wheels = ({ children, screenIsActive }) => (
+	<section className={`wheels screen--showing-footer ${screenStatus(screenIsActive)}`}>
 		<div className="container">{children}</div>
 	</section>
 );

@@ -23,15 +23,22 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			amount: 0,
+			apiStatus: null,
+			beginScreenActive: true,
 			carName: 'Model R',
 			carPrice: 63000,
-			apiStatus: null,
 			color: null,
+			colorScreenActive: false,
 			colorPrice: 0,
 			engine: null,
+			engineScreenActive: false,
 			enginePrice: 0,
+			finalScreenActive: false,
 			labelsOnFooter: ['Model R'],
+			nextButtonActive: false,
+			screenNumber: 0,
 			wheels: null,
+			wheelsScreenActive: false,
 			wheelsPrice: 0
 		};
 	}
@@ -58,13 +65,30 @@ export default class App extends Component {
 			});
 	}
 
+	handleNextSection = screenNumber => {
+		this.setState({
+			beginScreenActive: screenNumber === 0 && true,
+			colorScreenActive: screenNumber === 2 && true,
+			engineScreenActive: screenNumber === 1 && true,
+			finalScreenActive: screenNumber === 4 && true,
+			wheelsScreenActive: screenNumber === 3 && true,
+
+			nextButtonActive: false,
+			screenNumber: screenNumber + 1
+		});
+	};
+
 	handleRebuild = () => {
 		const { carName, carPrice } = this.state;
 
-		this.setState({
-			amount: carPrice,
-			labelsOnFooter: [carName]
-		});
+		this.setState(
+			{
+				amount: carPrice,
+				labelsOnFooter: [carName],
+				nextButtonActive: true
+			},
+			() => this.handleNextSection(0)
+		);
 	};
 
 	handleSelectEngine = (enginePrice, engineId) => {
@@ -73,7 +97,8 @@ export default class App extends Component {
 		this.setState({
 			amount: carPrice + enginePrice,
 			enginePrice,
-			labelsOnFooter: [carName, engineId]
+			labelsOnFooter: [carName, engineId],
+			nextButtonActive: true
 		});
 	};
 
@@ -87,7 +112,8 @@ export default class App extends Component {
 			labelsOnFooter: [
 				...(isNil(colorId) ? labelsOnFooter : previousLabelsOnFooter),
 				colorId
-			]
+			],
+			nextButtonActive: true
 		});
 	};
 
@@ -105,7 +131,8 @@ export default class App extends Component {
 			labelsOnFooter: [
 				...(isNil(wheelsId) ? labelsOnFooter : previousLabelsOnFooter),
 				wheelsId
-			]
+			],
+			nextButtonActive: true
 		});
 	};
 
@@ -113,19 +140,33 @@ export default class App extends Component {
 		const {
 			amount,
 			apiStatus,
+			beginScreenActive,
 			color,
+			colorScreenActive,
 			engine,
+			engineScreenActive,
+			finalScreenActive,
 			labelsOnFooter,
-			wheels
+			nextButtonActive,
+			screenNumber,
+			wheels,
+			wheelsScreenActive
 		} = this.state;
+
+		console.log(screenNumber);
 
 		return apiStatus === 'success' ? (
 			<>
 				<Header />
 
-				<Begin onClick={() => {}} />
+				<Begin
+					onClick={() => {
+						this.handleNextSection(beginScreenActive && 1);
+					}}
+					screenIsActive={beginScreenActive && true}
+				/>
 
-				<Engine>
+				<Engine screenIsActive={engineScreenActive && true}>
 					{engine.map(item => (
 						<EngineSelection
 							onClick={() => {
@@ -139,7 +180,7 @@ export default class App extends Component {
 					))}
 				</Engine>
 
-				<Color>
+				<Color screenIsActive={colorScreenActive && true}>
 					{color.map(item => (
 						<ColorSelection
 							onClick={() => {
@@ -151,7 +192,7 @@ export default class App extends Component {
 					))}
 				</Color>
 
-				<Wheels>
+				<Wheels screenIsActive={wheelsScreenActive && true}>
 					{wheels.map(item => (
 						<WheelsSelection
 							onClick={() => {
@@ -163,9 +204,17 @@ export default class App extends Component {
 					))}
 				</Wheels>
 
-				<Final onClick={() => this.handleRebuild()} />
+				<Final
+					onClick={() => this.handleRebuild()}
+					screenIsActive={finalScreenActive && true}
+				/>
 
-				<Footer amount={amount} label={labelsOnFooter} />
+				<Footer
+					amount={amount}
+					label={labelsOnFooter}
+					nextButtonActive={nextButtonActive}
+					onClick={() => this.handleNextSection(screenNumber)}
+				/>
 			</>
 		) : apiStatus === 'error' ? (
 			<Error />

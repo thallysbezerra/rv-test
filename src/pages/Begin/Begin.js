@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Begin = ({ onClick }) => (
-	<section className="begin screen--full">
+import screenStatus from '../../services/screenStatus';
+
+const Begin = ({ screenIsActive, onClick }) => (
+	<section className={`begin screen--full ${screenStatus(screenIsActive)}`}>
 		<div className="container">
 			<button onClick={onClick}>Begin</button>
 		</div>

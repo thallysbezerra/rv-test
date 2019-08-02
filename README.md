@@ -56,6 +56,7 @@
 - Each component have your own SCSS file.
 - Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
 - Keyframes animations are imported on `animations.scss`.
+- Pseudo-elements as `: first-letter`,`: after` and `: before` to solve specific situations.
 - Using SASS/SCSS.
 
 ## HTML

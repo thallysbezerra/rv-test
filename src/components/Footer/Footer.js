@@ -12,7 +12,7 @@ import wheelA from '../../img/wheel-a.png';
 import wheelB from '../../img/wheel-b.png';
 import wheelC from '../../img/wheel-c.png';
 
-const Footer = ({ amount, label }) => (
+const Footer = ({ amount, label, nextButtonActive, onClick }) => (
 	<footer className="footer">
 		<div className="footer--grid-container container">
 			<div className="footer--grid-item footer__amount">
@@ -96,7 +96,11 @@ const Footer = ({ amount, label }) => (
 					</div>
 				)}
 			</div>
-			<div className="footer--grid-item">Next button</div>
+			<div className="footer--grid-item">
+				<button disabled={!nextButtonActive} onClick={onClick}>
+					Next button
+				</button>
+			</div>
 		</div>
 	</footer>
 );

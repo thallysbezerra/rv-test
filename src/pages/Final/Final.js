@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Final = ({ onClick }) => (
-	<section className="final screen--full">
+import screenStatus from '../../services/screenStatus';
+
+const Final = ({ onClick, screenIsActive }) => (
+	<section className={`final screen--full ${screenStatus(screenIsActive)}`}>
 		<div className="container">
 			<button onClick={onClick}>Rebuild</button>
 		</div>
