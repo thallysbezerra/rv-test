@@ -28,18 +28,21 @@ export default class App extends Component {
 			carName: 'Model R',
 			carPrice: 63000,
 			color: null,
-			colorScreenActive: false,
+			colorId: null,
 			colorPrice: 0,
+			colorScreenActive: false,
 			engine: null,
-			engineScreenActive: false,
+			engineId: null,
 			enginePrice: 0,
+			engineScreenActive: false,
 			finalScreenActive: false,
 			labelsOnFooter: ['Model R'],
 			nextButtonActive: false,
 			screenNumber: 0,
 			wheels: null,
-			wheelsScreenActive: false,
-			wheelsPrice: 0
+			wheelsId: null,
+			wheelsPrice: 0,
+			wheelsScreenActive: false
 		};
 	}
 
@@ -64,6 +67,54 @@ export default class App extends Component {
 				});
 			});
 	}
+
+	handleSelectEngine = (enginePrice, engineId) => {
+		const { carName, carPrice } = this.state;
+
+		this.setState({
+			amount: carPrice + enginePrice,
+			engineId,
+			enginePrice,
+			labelsOnFooter: [carName, engineId],
+			nextButtonActive: true
+		});
+	};
+
+	handleSelectColor = (colorPrice, colorId) => {
+		const { carPrice, enginePrice, labelsOnFooter } = this.state;
+		const previousLabelsOnFooter = [labelsOnFooter[0], labelsOnFooter[1]];
+
+		this.setState({
+			amount: carPrice + enginePrice + colorPrice,
+			colorId,
+			colorPrice,
+			labelsOnFooter: [
+				...(isNil(colorId) ? labelsOnFooter : previousLabelsOnFooter),
+				colorId
+			],
+			nextButtonActive: true
+		});
+	};
+
+	handleSelectWheels = (wheelsPrice, wheelsId) => {
+		const { carPrice, colorPrice, enginePrice, labelsOnFooter } = this.state;
+		const previousLabelsOnFooter = [
+			labelsOnFooter[0],
+			labelsOnFooter[1],
+			labelsOnFooter[2]
+		];
+
+		this.setState({
+			amount: carPrice + enginePrice + colorPrice + wheelsPrice,
+			wheelsId,
+			wheelsPrice,
+			labelsOnFooter: [
+				...(isNil(wheelsId) ? labelsOnFooter : previousLabelsOnFooter),
+				wheelsId
+			],
+			nextButtonActive: true
+		});
+	};
 
 	handleNextSection = screenNumber => {
 		this.setState({
@@ -91,66 +142,29 @@ export default class App extends Component {
 		);
 	};
 
-	handleSelectEngine = (enginePrice, engineId) => {
-		const { carName, carPrice } = this.state;
-
-		this.setState({
-			amount: carPrice + enginePrice,
-			enginePrice,
-			labelsOnFooter: [carName, engineId],
-			nextButtonActive: true
-		});
-	};
-
-	handleSelectColor = (colorPrice, colorId) => {
-		const { carPrice, enginePrice, labelsOnFooter } = this.state;
-		const previousLabelsOnFooter = [labelsOnFooter[0], labelsOnFooter[1]];
-
-		this.setState({
-			amount: carPrice + enginePrice + colorPrice,
-			colorPrice,
-			labelsOnFooter: [
-				...(isNil(colorId) ? labelsOnFooter : previousLabelsOnFooter),
-				colorId
-			],
-			nextButtonActive: true
-		});
-	};
-
-	handleSelectWheels = (wheelsPrice, wheelsId) => {
-		const { carPrice, colorPrice, enginePrice, labelsOnFooter } = this.state;
-		const previousLabelsOnFooter = [
-			labelsOnFooter[0],
-			labelsOnFooter[1],
-			labelsOnFooter[2]
-		];
-
-		this.setState({
-			amount: carPrice + enginePrice + colorPrice + wheelsPrice,
-			wheelsPrice,
-			labelsOnFooter: [
-				...(isNil(wheelsId) ? labelsOnFooter : previousLabelsOnFooter),
-				wheelsId
-			],
-			nextButtonActive: true
-		});
-	};
-
 	render() {
 		const {
 			amount,
 			apiStatus,
 			beginScreenActive,
 			color,
+			colorId,
 			colorScreenActive,
 			engine,
+			engineId,
 			engineScreenActive,
 			finalScreenActive,
 			labelsOnFooter,
 			nextButtonActive,
 			screenNumber,
 			wheels,
-			wheelsScreenActive
+			wheelsScreenActive,
+			carName,
+			colorPrice,
+			enginePrice,
+			carPrice,
+			wheelsId,
+			wheelsPrice
 		} = this.state;
 
 		console.log(screenNumber);
@@ -205,8 +219,17 @@ export default class App extends Component {
 				</Wheels>
 
 				<Final
+					carName={carName}
+					colorId={colorId}
+					colorPrice={colorPrice}
+					engineId={engineId}
+					enginePrice={enginePrice}
+					finalPrice={amount}
 					onClick={() => this.handleRebuild()}
 					screenIsActive={finalScreenActive && true}
+					startingPrice={carPrice}
+					wheelsId={wheelsId}
+					wheelsPrice={wheelsPrice}
 				/>
 
 				<Footer

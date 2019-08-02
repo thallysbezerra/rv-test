@@ -1,0 +1,17 @@
+@import '../../css/theme.scss';
+
+.final {
+	&__image-area {
+		margin-bottom: 30px;
+		text-align: center;
+
+		&__img {
+			max-width: 90%;
+		}
+	}
+
+	&__info-area__row {
+		display: flex;
+		justify-content: space-between;
+	}
+}

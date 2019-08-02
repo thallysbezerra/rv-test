@@ -33,14 +33,8 @@
 	z-index: 3;
 
 	& ~ .footer {
-		opacity: 0;
-		transition: opacity 0.5s ease-in-out;
-		visibility: hidden;
+		display: none;
 	}
-}
-
-.screen--full.footer {
-	transition: opacity 0.5s ease-in-out;
 }
 
 .screen--showing-footer {
