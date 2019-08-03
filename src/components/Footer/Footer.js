@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../../components/Button/Button';
+
 import monetaryMask from '../../services/monetaryMask';
 
 import './Footer.scss';
 
-import dotRed from '../../img/dot-red.png';
 import dotBlue from '../../img/dot-blue.png';
 import dotGrey from '../../img/dot-grey.png';
+import dotRed from '../../img/dot-red.png';
+import iconArrow from '../../img/arrow.svg';
 import wheelA from '../../img/wheel-a.png';
 import wheelB from '../../img/wheel-b.png';
 import wheelC from '../../img/wheel-c.png';
@@ -95,9 +98,14 @@ const Footer = ({ amount, label, nextButtonActive, onClick }) => (
 			</div>
 
 			<div className="footer--grid-item">
-				<button disabled={!nextButtonActive} onClick={onClick}>
-					Next button
-				</button>
+				<Button
+					className="begin--button"
+					disabled={!nextButtonActive}
+					icon={iconArrow}
+					onClick={onClick}
+				>
+					next
+				</Button>
 			</div>
 		</div>
 	</footer>

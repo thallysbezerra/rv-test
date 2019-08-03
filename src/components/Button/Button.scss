@@ -5,20 +5,33 @@
 	background-color: transparent;
 	border: none;
 	display: flex;
+	font-size: 22px;
 	height: 35px;
+	letter-spacing: 2.8px;
 
 	&__icon {
-		margin-left: 10px;
+		margin-left: 15px;
 	}
 
 	&--small {
 		@extend .button;
 
+		font-size: 16px;
 		letter-spacing: 9.5px;
 		text-transform: uppercase;
 	}
 
 	&:hover {
 		cursor: pointer;
+	}
+
+	&:disabled {
+		pointer-events: none;
+
+		.button__icon {
+			animation: none;
+			filter: grayscale(100%);
+			opacity: .5;
+		}
 	}
 }

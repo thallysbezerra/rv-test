@@ -98,7 +98,9 @@
 		margin: 50px auto 20px;
 
 		&:hover .button__icon {
-			animation: spin 2s ease-in-out;
+			@include breakpoint(tabletL) {
+				animation: spin 2s ease-in-out;
+			}
 		}
 	}
 

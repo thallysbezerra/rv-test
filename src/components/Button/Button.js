@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 import './Button.scss';
 
-const Button = ({ children, className, icon, iconTitle, onClick, small }) => {
+const Button = ({ children, className, disabled, icon, iconTitle, onClick, small }) => {
 	return (
 		<button
 			className={`button${small ? '--small' : ''} ${
 				className ? className : ''
 				}`}
+			disabled={disabled}
 			onClick={onClick}
 		>
 			{children}
@@ -20,6 +21,7 @@ const Button = ({ children, className, icon, iconTitle, onClick, small }) => {
 Button.propTypes = {
 	children: PropTypes.string.isRequired,
 	className: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
 	icon: PropTypes.string,
 	iconTitle: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
