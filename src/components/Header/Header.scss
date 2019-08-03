@@ -28,6 +28,10 @@
 			position: absolute;
 			top: 0;
 			width: 20px;
+
+			@include breakpoint(tabletL) {
+				display: none;
+			}
 		}
 
 		&:before {
@@ -58,7 +62,7 @@
 
 			&__li {
 				display: inline-block;
-				margin: 0 20px;
+				margin: 0 25px;
 
 				&__a {
 					color: $greyish-blue;
@@ -75,6 +79,15 @@
 					&.disabled {
 						opacity: 0.57;
 						pointer-events: none;
+					}
+				}
+
+				&:last-of-type {
+					padding-right: 25px;
+
+					@include breakpoint(tabletL) {
+						margin-right: 0;
+						padding-right: 0;
 					}
 				}
 			}

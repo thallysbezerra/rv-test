@@ -219,7 +219,8 @@ export default class App extends Component {
 				</Wheels>
 
 				<Final
-					carName={carName}
+					carName={carName.slice(0, -1)}
+					carLetter={carName.slice(-1)}
 					colorId={colorId}
 					colorPrice={colorPrice}
 					engineId={engineId}
@@ -242,7 +243,7 @@ export default class App extends Component {
 		) : apiStatus === 'error' ? (
 			<Error />
 		) : (
-			<Loading />
-		);
+					<Loading />
+				);
 	}
 }

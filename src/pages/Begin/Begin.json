@@ -1,0 +1,17 @@
+[
+	{
+		"value": "2.5",
+		"unity": "s",
+		"info": "From 0 to 100"
+	},
+	{
+		"value": "420",
+		"unity": "mi",
+		"info": "Miles Range"
+	},
+	{
+		"value": "250",
+		"unity": "mp/h",
+		"info": "Max Speed"
+	}
+]

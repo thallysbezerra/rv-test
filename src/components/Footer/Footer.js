@@ -105,7 +105,9 @@ const Footer = ({ amount, label, nextButtonActive, onClick }) => (
 
 Footer.propTypes = {
 	amount: PropTypes.number.isRequired,
-	label: PropTypes.array.isRequired
+	label: PropTypes.array.isRequired,
+	nextButtonActive: PropTypes.bool.isRequired,
+	onClick: PropTypes.func.isRequired
 };
 
 export default Footer;

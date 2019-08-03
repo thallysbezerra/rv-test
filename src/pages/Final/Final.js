@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import screenStatus from '../../services/screenStatus';
+import Button from '../../components/Button/Button';
+import Title from '../../components/Title/Title';
 
 import carBlue from '../../img/car-final-blue.png';
 import carGrey from '../../img/car-final-grey.png';
 import carRed from '../../img/car-final-red.png';
+import iconRebuild from '../../img/rebuild.svg';
 
 import monetaryMask from '../../services/monetaryMask';
+import screenStatus from '../../services/screenStatus';
 
 import './Final.scss';
 
 const Final = ({
+	carLetter,
 	carName,
 	colorId,
 	colorPrice,
@@ -26,7 +30,11 @@ const Final = ({
 }) => (
 	<section className={`final screen--full ${screenStatus(screenIsActive)}`}>
 		<div className="container">
-			<h2 className="screen__title">Your {carName}</h2>
+			<Title className="title--final">
+				Your
+				<span className="final__title--car"> {carName} </span>
+				<span className="final__title--letter">{carLetter}</span>
+			</Title>
 			<div className="final--flex-container">
 				<div className="final__image-area">
 					{colorId === 4 && (
@@ -104,7 +112,15 @@ const Final = ({
 							{monetaryMask(finalPrice)}
 						</span>
 					</div>
-					<button onClick={onClick}>Rebuild</button>
+					<Button
+						className="button--rebuild"
+						icon={iconRebuild}
+						iconTitle="Rebuild"
+						onClick={onClick}
+						small
+					>
+						Rebuild
+					</Button>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,98 @@
+@import '../../css/theme.scss';
+
+.begin {
+	text-align: center;
+
+	&--button {
+		margin: 0 auto;
+
+		&:hover .button__icon {
+			animation: bounce 1.5s ease-in-out;
+		}
+	}
+
+	&__title {
+		margin-top: 100px;
+		text-align: center;
+
+		@include breakpoint(tabletL) {
+			display: flex;
+			flex-direction: column;
+			margin-top: 60px;
+			padding-left: 200px;
+		}
+
+		&--hat {
+			color: $red;
+			display: inline-block;
+			font-size: 20px;
+			font-weight: $medium;
+			text-align: left;
+			width: 290px;
+
+			@include breakpoint(tabletL) {
+				font-size: 30px;
+				width: 500px;
+			}
+		}
+
+		&--principal {
+			display: inline-block;
+			font-size: 90px;
+			font-weight: $light;
+			margin: 0 0 0 -10px;
+			text-align: left;
+			text-transform: uppercase;
+			width: 290px;
+
+			@include breakpoint(tabletL) {
+				font-size: 150px;
+				width: 500px;
+			}
+		}
+
+		&--letter {
+			color: $red;
+			font-weight: $medium;
+		}
+	}
+
+	&__img {
+		margin-top: -50px;
+		max-width: calc(100% - 40px);
+
+		@include breakpoint(tabletL) {
+			margin: -80px -30px 0 0;
+		}
+	}
+
+	&__features {
+		bottom: 0;
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+		padding: 0;
+		position: absolute;
+		width: calc(100% - 40px);
+
+		&__item {
+			border-bottom: 3px solid $red;
+			padding-bottom: 5px;
+			width: 90px;
+
+			&__value {
+				color: $red;
+				font-size: 32px;
+			}
+
+			&__unity {
+				font-size: 15px;
+			}
+
+			&__info {
+				font-size: 14px;
+				font-weight: $light;
+			}
+		}
+	}
+}

@@ -3,7 +3,7 @@ import './Header.scss';
 
 import rvLogo from '../../img/rv-logo.svg';
 
-const Header = props => {
+const Header = () => {
 	return (
 		<header className="header">
 			<div className="header--grid-container container">
@@ -45,7 +45,5 @@ const Header = props => {
 		</header>
 	);
 };
-
-Header.propTypes = {};
 
 export default Header;

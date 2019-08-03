@@ -1,17 +1,108 @@
 @import '../../css/theme.scss';
 
 .final {
-	&__image-area {
-		margin-bottom: 30px;
-		text-align: center;
-
-		&__img {
-			max-width: 90%;
+	&--flex-container {
+		@include breakpoint(tabletL) {
+			align-items: center;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
-	&__info-area__row {
-		display: flex;
-		justify-content: space-between;
+	&__image-area {
+		margin-bottom: 24px;
+		text-align: center;
+
+		&__img {
+			max-width: 70%;
+
+			@include breakpoint(tabletL) {
+				transform: translateY(-25%);
+			}
+		}
+	}
+
+	&__info-area {
+		@include breakpoint(tabletL) {
+			justify-self: flex-end;
+			width: 480px;
+		}
+
+		&__row {
+			display: flex;
+			justify-content: space-between;
+
+			&__text,
+			&__price {
+				font-size: 16px;
+				padding: 12px 0;
+
+				@include breakpoint(tabletL) {
+					font-size: 22px;
+					padding: 20px 0;
+				}
+			}
+
+			&__price {
+				color: $red;
+			}
+
+			&--first,
+			&--last {
+				@extend .final__info-area__row;
+			}
+
+			&--first {
+				border-bottom: $grey-light 1px solid;
+				margin-bottom: 6px;
+				padding-bottom: 6px;
+
+				@include breakpoint(tabletL) {
+					margin-bottom: 20px;
+					padding-bottom: 20px;
+				}
+			}
+
+			&--last {
+				border-top: $grey-light 1px solid;
+				margin-top: 6px;
+				padding-top: 6px;
+
+				@include breakpoint(tabletL) {
+					margin-top: 20px;
+					padding-top: 20px;
+				}
+
+				.final__info-area__row__text,
+				.final__info-area__row__price {
+					font-size: 26px;
+
+					@include breakpoint(tabletL) {
+						font-size: 32px;
+					}
+				}
+			}
+		}
+	}
+
+	&__title--car {
+		font-weight: $regular;
+	}
+
+	&__title--letter {
+		color: $red;
+		font-weight: $medium;
+	}
+
+	.button--rebuild {
+		margin: 50px auto 20px;
+
+		&:hover .button__icon {
+			animation: spin 2s ease-in-out;
+		}
+	}
+
+	.title--final {
+		margin-left: calc(100% - 480px);
 	}
 }
