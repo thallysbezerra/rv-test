@@ -47,15 +47,17 @@
 
 - All CSS/SCSS theme files are imported on `theme.scss`.
 - B.E.M. (Block Element Modifier) class naming methodology.
+- Breakpoints as mixin, included inside own selector in order to facilitate maintenance.
+- CSS Grid and CSS Flexbox to define layout structures.
 - Even with disabled links, navbar on mobile can be simulate scrolling right/left.
+- Each component have your own SCSS file.
+- Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
+- Keyframes animations are imported on `animations.scss`.
 - Mobile first with four breakpoints using:
    - Only on mobile: Screen resolution <= 767px.
    - Tablet portrait mode: Screen resolution >= 768px.
    - Tablet landscape mode: Screen resolution >= 1024px.
    - Desktop: Screen resolution >= 1280px.
-- Each component have your own SCSS file.
-- Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
-- Keyframes animations are imported on `animations.scss`.
 - Pseudo-elements as `: first-letter`,`: after` and `: before` to solve specific situations.
 - Using SASS/SCSS.
 
@@ -82,6 +84,11 @@
 - Simple tests to verify if application is rendering without crashing and initial states are initializing correctly.
 - Statics components with snapshots tests to avoid components changes.
 - Testing if data as number, is entering and returning correctly on `monetaryMask()` function.
+- Testing if `screenStatus()` returns only two possibilities correctly.
+
+# Instructions to run tests
+
+-  `npm test`, or `yarn test` on root directory to run application tests.
 
 # Instructions to run locally
 
