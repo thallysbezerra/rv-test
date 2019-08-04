@@ -11,7 +11,6 @@ import screenStatus from '../../services/screenStatus';
 import data from './Begin.json';
 
 import './Begin.scss';
-import { typeParameterInstantiation } from '@babel/types';
 
 const Begin = ({ screenIsActive, onClick }) => (
 	<section className={`begin screen--full ${screenStatus(screenIsActive)}`}>
