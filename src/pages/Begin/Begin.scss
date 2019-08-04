@@ -1,15 +1,19 @@
-@import '../../css/theme.scss';
+@import '../../css/theme';
 
 .begin {
 	text-align: center;
-	transition: visibility 0s ease-in-out;
+
+	&.screen--active,
+	&.screen--inactive {
+		transition: visibility 0s;
+	}
 
 	&--button {
 		margin: 0 auto;
 
 		&:hover .button__icon {
-			@include breakpoint(tabletL) { 
-				animation: bounce 1.5s ease-in-out;
+			@include breakpoint(tabletL) {
+				animation: bounce 1s ease-in-out;
 			}
 		}
 	}

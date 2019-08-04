@@ -48,28 +48,33 @@
 
 ## CSS
 
--  All CSS/SCSS theme files are imported on `theme.scss`.
+-  All CSS/SCSS theme files are imported on `theme`.
 -  Animations on `:hover` in buttons to give feedback of interaction to user.
 -  B.E.M. (Block Element Modifier) class naming methodology.
 -  Breakpoints as mixin, included inside own selector in order to facilitate maintenance.
 -  CSS Grid and CSS Flexbox to define layout structures.
+-  Disabled links are using `pointer-events: none` to prevent possibilities of click and wrong navigation;
 -  Even with disabled links, navbar on mobile can be simulate scrolling right/left.
 -  Each component have your own SCSS file.
--  Font-family using Google Fonts and Font-weight variables are declared on `fonts.scss`.
--  Keyframes animations are imported on `animations.scss`.
+-  Font-family using Google Fonts and Font-weight variables are declared on `fonts`.
+-  `@keyframes` animations are imported from `animations.scss`.
 -  Mobile first with four breakpoints using:
    -  Only on mobile: Screen resolution <= 767px.
    -  Tablet portrait mode: Screen resolution >= 768px.
    -  Tablet landscape mode: Screen resolution >= 1024px.
    -  Desktop: Screen resolution >= 1280px.
+-  `Opacity` property on unselected options to give better UI feedback.
 -  Pseudo-elements as `: first-letter`,`: after` and `: before` to solve specific situations.
+-  Some animations combining `@keyframes` with `transitions`.
+-  Some animations using `transform` property, focused on device/web performance.
 -  Using SASS/SCSS.
 
 ## HTML
 
 -  HTML5 following W3C Standards recommendations.
--  All images are on the same directory (`src/img`) for performance reasons downloading each images only once when page is loaded.
+-  All images are on the same directory (`src/img`) for performance reasons downloading each images only once when page is loaded, and in order to facilitate maintenance.
 -  Car models are disabled, without navigation, except Model R.
+-  Favicon generated on https://www.favicon-generator.org/
 
 ## Javascript
 
@@ -79,7 +84,9 @@
 -  Functions on `/services` to aid some data treatment.
 -  `.map` to list items from API.
 -  `PropTypes` to better component maintenance and understanding.
+-  Reusable components are located on directory `/components`.
 -  Reusing car price and name as states, considering possible future changes.
+-  `Sections` (or each screen) are located on directory `/pages`;
 -  Some components are stateless, focused on performance.
 -  Spread operator to create an array with selected items on footer.
 -  Short circuit conditionals validating selected items on footer.

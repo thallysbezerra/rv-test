@@ -1,7 +1,8 @@
 import React from 'react';
-import './Header.scss';
 
 import rvLogo from '../../img/rv-logo.svg';
+
+import './Header.scss';
 
 const Header = () => {
 	return (

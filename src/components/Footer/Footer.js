@@ -105,7 +105,7 @@ const Footer = ({ amount, label, nextButtonActive, onClick }) => (
 					onClick={onClick}
 				>
 					next
-					</Button>
+				</Button>
 			</div>
 		</div>
 	</footer>

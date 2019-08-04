@@ -50,7 +50,10 @@ const ColorSelection = ({
 
 ColorSelection.propTypes = {
 	onClick: PropTypes.func.isRequired,
-	label: PropTypes.string.isRequired
+	colorLabel: PropTypes.string.isRequired,
+	colorId: PropTypes.number,
+	colorPrice: PropTypes.number,
+	colorSelected: PropTypes.bool
 };
 
 export default ColorSelection;

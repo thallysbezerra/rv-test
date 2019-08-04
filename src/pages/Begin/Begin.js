@@ -11,6 +11,7 @@ import screenStatus from '../../services/screenStatus';
 import data from './Begin.json';
 
 import './Begin.scss';
+import { typeParameterInstantiation } from '@babel/types';
 
 const Begin = ({ screenIsActive, onClick }) => (
 	<section className={`begin screen--full ${screenStatus(screenIsActive)}`}>
@@ -56,7 +57,8 @@ const Begin = ({ screenIsActive, onClick }) => (
 );
 
 Begin.propTypes = {
-	onClick: PropTypes.func.isRequired
+	onClick: PropTypes.func.isRequired,
+	screenIsActive: PropTypes.bool.isRequired
 };
 
 export default Begin;

@@ -1,0 +1,60 @@
+@import '../../css/theme.scss';
+
+.wheels {
+	overflow: hidden;
+
+	&--grid-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin-top: 120px;
+		max-width: 150vw;
+		overflow: hidden;
+		position: absolute;
+		transform: translateX(-30vw);
+		transition: transform 0.25s ease-in-out;
+
+		@include breakpoint(tabletL) {
+			transform: translateX(0);
+		}
+
+		@include breakpoint(tabletL) {
+			display: flex;
+			justify-content: space-around;
+			width: calc(100% - 40px);
+		}
+	}
+
+	&--first {
+		.wheels--grid-container {
+			transform: translateX(20vw);
+
+			@include breakpoint(tabletL) {
+				transform: none;
+			}
+		}
+	}
+
+	&--center {
+		.wheels--grid-container {
+			transform: translateX(-30vw);
+
+			@include breakpoint(tabletL) {
+				transform: none;
+			}
+		}
+	}
+
+	&--last {
+		.wheels--grid-container {
+			transform: translateX(-80vw);
+
+			@include breakpoint(tabletL) {
+				transform: none;
+			}
+		}
+	}
+
+	.title--wheels {
+		text-align: center;
+	}
+}

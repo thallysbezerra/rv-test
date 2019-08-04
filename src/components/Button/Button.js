@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 
 import './Button.scss';
 
-const Button = ({ children, className, disabled, icon, iconTitle, onClick, small }) => {
+const Button = ({
+	children,
+	className,
+	disabled,
+	icon,
+	iconTitle,
+	onClick,
+	small
+}) => {
 	return (
 		<button
 			className={`button${small ? '--small' : ''} ${
 				className ? className : ''
-				}`}
+			}`}
 			disabled={disabled}
 			onClick={onClick}
 		>
@@ -29,9 +37,9 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-	children: "Button name",
-	className: "",
-	onClick: () => { }
-}
+	children: 'Button name',
+	className: '',
+	onClick: () => {}
+};
 
 export default Button;

@@ -1,10 +1,10 @@
-@import '../../css/theme.scss';
+@import '../../css/theme';
 
 .color {
 	&--grid-container {
 		align-items: center;
 		display: grid;
-		grid-template-rows: 200px 1fr;
+		grid-template-rows: 170px 1fr;
 		justify-items: center;
 		position: relative;
 

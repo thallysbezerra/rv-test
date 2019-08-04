@@ -106,13 +106,13 @@ export default class App extends Component {
 
 		this.setState({
 			amount: carPrice + enginePrice + colorPrice + wheelsPrice,
-			wheelsId,
-			wheelsPrice,
 			labelsOnFooter: [
 				...(isNil(wheelsId) ? labelsOnFooter : previousLabelsOnFooter),
 				wheelsId
 			],
-			nextButtonActive: true
+			nextButtonActive: true,
+			wheelsPrice,
+			wheelsId
 		});
 	};
 
@@ -135,6 +135,9 @@ export default class App extends Component {
 		this.setState(
 			{
 				amount: carPrice,
+				colorId: null,
+				engineId: null,
+				wheelsId: null,
 				labelsOnFooter: [carName],
 				nextButtonActive: true
 			},
@@ -214,14 +217,21 @@ export default class App extends Component {
 					))}
 				</Color>
 
-				<Wheels screenIsActive={wheelsScreenActive && true}>
+				<Wheels
+					activeWheel={wheelsId}
+					screenIsActive={wheelsScreenActive && true}
+				>
 					{wheels.map(item => (
 						<WheelsSelection
 							onClick={() => {
 								this.handleSelectWheels(item.price, item.id);
 							}}
 							key={item.id}
-							label={item.label}
+							wheelsId={item.id}
+							wheelsLabel={item.label}
+							wheelsPrice={item.price}
+							wheelsSelected={wheelsId === item.id}
+							wheelsToShow={wheelsId}
 						/>
 					))}
 				</Wheels>
@@ -251,7 +261,7 @@ export default class App extends Component {
 		) : apiStatus === 'error' ? (
 			<Error />
 		) : (
-					<Loading />
-				);
+			<Loading />
+		);
 	}
 }

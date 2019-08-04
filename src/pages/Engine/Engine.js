@@ -41,7 +41,7 @@ const Engine = ({ children, engineId, screenIsActive }) => (
 
 Engine.propTypes = {
 	children: PropTypes.array.isRequired,
-	engineId: PropTypes.number.isRequired,
+	engineId: PropTypes.number,
 	screenIsActive: PropTypes.string.isRequired
 };
 

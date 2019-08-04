@@ -1,0 +1,59 @@
+@import '../../css/theme';
+
+.wheels-selection {
+	text-align: center;
+	width: 50vw;
+
+	@include breakpoint(tabletL) {
+		min-height: 300px;
+		min-width: 225px;
+		width: initial;
+	}
+
+	&__unselected {
+		opacity: 0.5;
+	}
+
+	&__button {
+		background-color: transparent;
+		border: none;
+		border-radius: 60px;
+		height: 115px;
+		outline: none;
+		position: relative;
+		width: 115px;
+
+		@include breakpoint(tabletL) {
+			height: 175px;
+			width: 225px;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&__img {
+			height: 115px;
+			left: -15px;
+			position: absolute;
+			top: 0;
+			width: 148px;
+
+			@include breakpoint(tabletL) {
+				height: 175px;
+				left: 0;
+				width: 225px;
+			}
+		}
+	}
+
+	&__status {
+		font-size: 18px;
+		margin-top: 30px;
+
+		&__price {
+			color: $red;
+			margin-top: 5px;
+		}
+	}
+}

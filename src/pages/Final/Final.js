@@ -128,7 +128,18 @@ const Final = ({
 );
 
 Final.propTypes = {
-	onClick: PropTypes.func.isRequired
+	carLetter: PropTypes.string.isRequired,
+	carName: PropTypes.string.isRequired,
+	colorId: PropTypes.number,
+	colorPrice: PropTypes.number,
+	engineId: PropTypes.number,
+	enginePrice: PropTypes.number,
+	finalPrice: PropTypes.number,
+	onClick: PropTypes.func.isRequired,
+	screenIsActive: PropTypes.string.isRequired,
+	startingPrice: PropTypes.number.isRequired,
+	wheelsId: PropTypes.number,
+	wheelsPrice: PropTypes.number
 };
 
 export default Final;

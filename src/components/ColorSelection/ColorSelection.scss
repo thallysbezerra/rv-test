@@ -1,4 +1,4 @@
-@import '../../css/theme.scss';
+@import '../../css/theme';
 
 .color-selection {
 	margin-top: 50px;
@@ -35,6 +35,10 @@
 		outline: none;
 		position: relative;
 		width: 35px;
+
+		&:hover {
+			cursor: pointer;
+		}
 
 		&__img {
 			border: 7px solid transparent;

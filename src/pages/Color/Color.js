@@ -45,7 +45,9 @@ const Color = ({ children, colorId, screenIsActive }) => (
 );
 
 Color.propTypes = {
-	children: PropTypes.array.isRequired
+	children: PropTypes.array.isRequired,
+	colorId: PropTypes.number,
+	screenIsActive: PropTypes.string.isRequired
 };
 
 export default Color;
