@@ -1,0 +1,70 @@
+@import '../../css/theme.scss';
+
+.engine-selection {
+	background-color: $greyish-white;
+	border: none;
+	height: 65px;
+	margin-bottom: 30px;
+	outline: none;
+	padding: 0 10px;
+	text-align: left;
+	width: 100%;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&__khw-1 {
+		display: inline-block;
+		font-size: 22px;
+		width: 25%;
+	}
+
+	&__type {
+		color: $red;
+		font-weight: $bold;
+	}
+
+	&__khw-2,
+	&__range {
+		color: $grey-dark;
+		display: inline-block;
+
+		b {
+			color: $black;
+			font-weight: $medium;
+		}
+	}
+
+	&__khw-2 {
+		width: 30%;
+	}
+
+	&__range {
+		width: 40%;
+	}
+
+	&__selected:after {
+		background-color: $red;
+		border-radius: 50%;
+		content: '';
+		display: inline-block;
+		height: 15px;
+		width: 15px;
+	}
+
+	&__unselected {
+		position: relative;
+
+		&:before {
+			background-color: $greyish-white;
+			bottom: 0;
+			content: '';
+			left: 0;
+			opacity: 0.7;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+}

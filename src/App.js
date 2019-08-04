@@ -180,14 +180,18 @@ export default class App extends Component {
 					screenIsActive={beginScreenActive && true}
 				/>
 
-				<Engine screenIsActive={engineScreenActive && true}>
+				<Engine
+					engineId={engineId}
+					screenIsActive={engineScreenActive && true}
+				>
 					{engine.map(item => (
 						<EngineSelection
+							engineId={engineId === item.id}
+							key={item.id}
+							kwh={item.kwh}
 							onClick={() => {
 								this.handleSelectEngine(item.price, item.id);
 							}}
-							key={item.id}
-							kwh={item.kwh}
 							range={item.range}
 							type={item.type}
 						/>
@@ -243,7 +247,7 @@ export default class App extends Component {
 		) : apiStatus === 'error' ? (
 			<Error />
 		) : (
-					<Loading />
-				);
+			<Loading />
+		);
 	}
 }

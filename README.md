@@ -46,6 +46,7 @@
 ## CSS
 
 - All CSS/SCSS theme files are imported on `theme.scss`.
+- Animations on `:hover` in buttons to give feedback of interaction to user.
 - B.E.M. (Block Element Modifier) class naming methodology.
 - Breakpoints as mixin, included inside own selector in order to facilitate maintenance.
 - CSS Grid and CSS Flexbox to define layout structures.
@@ -71,13 +72,14 @@
 
 - Arrow functions instead of `bind.this`, simplifying code.
 - Combining `isNil` method from `ramda` with ternaries to verify arguments with/without changes.
--  Destructuring of states and props to keep a clean code and declarative.
--  `.map` to list items from API.
--  `PropTypes` to better component maintenance and understanding.
+- Destructuring of states and props to keep a clean code and declarative.
+- Functions on `/services` to aid some data treatment.
+- `.map` to list items from API.
+- `PropTypes` to better component maintenance and understanding.
 - Reusing car price and name as states, considering possible future changes.
--  Some components are stateless, focused on performance.
--  Spread operator to create an array with selected items on footer.
--  Short circuit conditionals validating selected items on footer.
+- Some components are stateless, focused on performance.
+- Spread operator to create an array with selected items on footer.
+- Short circuit conditionals validating selected items on footer.
 
 ## Tests
 - Jest as test runner inside create-react-app.

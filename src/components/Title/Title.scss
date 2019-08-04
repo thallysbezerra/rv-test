@@ -3,7 +3,7 @@
 .title {
 	font-size: 22px;
 	font-weight: $light;
-	margin: 0 0 40px;
+	margin: 0;
 
 	@include breakpoint(tabletL) {
 		font-size: 45px;

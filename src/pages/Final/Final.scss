@@ -105,6 +105,10 @@
 	}
 
 	.title--final {
-		margin-left: calc(100% - 480px);
+		margin-bottom: 40px;
+
+		@include breakpoint(tabletL) {
+			margin-left: calc(100% - 480px);
+		}
 	}
 }
