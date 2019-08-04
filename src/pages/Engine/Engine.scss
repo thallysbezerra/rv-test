@@ -4,7 +4,7 @@
 	&--grid-container {
 		align-items: center;
 		display: grid;
-		grid-template-rows: 200px 1fr;
+		grid-template-rows: 150px 1fr;
 		justify-items: center;
 
 		@include breakpoint(tabletL) {
@@ -14,7 +14,7 @@
 		}
 	}
 	&__img {
-		max-height: 360px;
+		max-height: 340px;
 		transform: rotate(-90deg);
 
 		@include breakpoint(tabletL) {
