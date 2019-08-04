@@ -1,6 +1,6 @@
 import React from 'react';
 
-import rvLogo from '../../img/rv-logo.svg';
+import rvLogo from '../../img/RV-logo.svg';
 
 import './Header.scss';
 
