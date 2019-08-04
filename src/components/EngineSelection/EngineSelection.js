@@ -3,11 +3,20 @@ import PropTypes from 'prop-types';
 
 import './EngineSelection.scss';
 
-const EngineSelection = ({ engineId, onClick, kwh, range, type }) => (
+const EngineSelection = ({
+	engineId,
+	engineSelected,
+	onClick,
+	kwh,
+	range,
+	type
+}) => (
 	<button
 		className={`engine-selection ${
-			engineId
+			engineId && engineSelected
 				? 'engine-selection__selected'
+				: !engineId
+				? ''
 				: 'engine-selection__unselected'
 		}`}
 		onClick={onClick}
@@ -25,7 +34,7 @@ const EngineSelection = ({ engineId, onClick, kwh, range, type }) => (
 );
 
 EngineSelection.propTypes = {
-	engineId: PropTypes.number,
+	engineSelected: PropTypes.number,
 	onClick: PropTypes.func.isRequired,
 	kwh: PropTypes.number.isRequired,
 	range: PropTypes.number.isRequired,

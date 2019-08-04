@@ -186,7 +186,8 @@ export default class App extends Component {
 				>
 					{engine.map(item => (
 						<EngineSelection
-							engineId={engineId === item.id}
+							engineId={engineId}
+							engineSelected={engineId === item.id}
 							key={item.id}
 							kwh={item.kwh}
 							onClick={() => {
@@ -198,14 +199,17 @@ export default class App extends Component {
 					))}
 				</Engine>
 
-				<Color screenIsActive={colorScreenActive && true}>
+				<Color colorId={colorId} screenIsActive={colorScreenActive && true}>
 					{color.map(item => (
 						<ColorSelection
+							colorId={item.id}
+							colorLabel={item.label}
+							colorPrice={item.price}
+							colorSelected={colorId === item.id}
 							onClick={() => {
 								this.handleSelectColor(item.price, item.id);
 							}}
 							key={item.id}
-							label={item.label}
 						/>
 					))}
 				</Color>
@@ -247,7 +251,7 @@ export default class App extends Component {
 		) : apiStatus === 'error' ? (
 			<Error />
 		) : (
-			<Loading />
-		);
+					<Loading />
+				);
 	}
 }

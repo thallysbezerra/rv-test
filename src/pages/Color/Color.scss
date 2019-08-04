@@ -1,0 +1,50 @@
+@import '../../css/theme.scss';
+
+.color {
+	&--grid-container {
+		align-items: center;
+		display: grid;
+		grid-template-rows: 200px 1fr;
+		justify-items: center;
+		position: relative;
+
+		@include breakpoint(tabletL) {
+			align-items: flex-start;
+			grid-template-rows: 1fr;
+			grid-template-columns: 1fr 500px;
+			justify-items: flex-start;
+		}
+	}
+	&__img {
+		max-width: 100%;
+
+		@include breakpoint(tabletL) {
+			margin-top: -140px;
+		}
+	}
+
+	.title--color {
+		@include breakpoint(tabletL) {
+			margin-bottom: 40px;
+			margin-left: calc(100% - 500px);
+		}
+
+		& + .subtitle {
+			@include breakpoint(tabletL) {
+				margin-bottom: 40px;
+				margin-left: calc(100% - 500px);
+			}
+		}
+	}
+
+	&__bottom-area {
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+		width: 100%;
+
+		@include breakpoint(tabletL) {
+			position: initial;
+		}
+	}
+}

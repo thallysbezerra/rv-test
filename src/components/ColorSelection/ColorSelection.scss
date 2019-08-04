@@ -1,0 +1,53 @@
+@import '../../css/theme.scss';
+
+.color-selection {
+	margin-top: 50px;
+
+	&__status {
+		font-size: 18px;
+		left: 50%;
+		position: absolute;
+		text-align: center;
+		top: -30px;
+		transform: translateX(-50%);
+
+		@include breakpoint(tabletL) {
+			bottom: 0;
+			left: 110px;
+			text-align: left;
+			top: initial;
+			transform: translateX(0);
+		}
+
+		&__label {
+			margin-bottom: 10px;
+		}
+		&__price {
+			color: $red;
+		}
+	}
+
+	&__button {
+		background-color: transparent;
+		border: none;
+		border-radius: 50%;
+		height: 35px;
+		outline: none;
+		position: relative;
+		width: 35px;
+
+		&__img {
+			border: 7px solid transparent;
+			border-radius: 50%;
+			height: 35px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 35px;
+		}
+
+		&__selected .color-selection__button__img {
+			border: 7px solid $grey-dark;
+		}
+	}
+}
