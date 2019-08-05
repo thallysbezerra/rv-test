@@ -34,7 +34,7 @@ const Begin = ({ screenIsActive, onClick }) => (
 					Begin
 				</Button>
 			</div>
-			<div>
+			<div className="container">
 				<ul className="begin__features">
 					{data.map(item => (
 						<li className="begin__features__item">
